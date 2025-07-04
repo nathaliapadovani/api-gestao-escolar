@@ -1,64 +1,90 @@
-# Imersão DevOps - Alura Google Cloud
+# API de Gestão Escolar
 
-Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e matrículas em uma instituição de ensino.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green?style=for-the-badge&logo=fastapi)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue?style=for-the-badge&logo=docker)
 
-## Pré-requisitos
+API desenvolvida com FastAPI para gerenciar alunos, cursos e matrículas em uma instituição de ensino, como parte da **Imersão DevOps da Alura + Google Cloud**.
 
-- [Python 3.10 ou superior instalado](https://www.python.org/downloads/)
-- [Git](https://git-scm.com/downloads)
+---
+
+## 🚀 Como Executar o Projeto
+
+Existem duas maneiras de executar a aplicação: usando Docker (recomendado para simplicidade) ou localmente em um ambiente virtual (para desenvolvimento).
+
+### Método 1: Usando Docker (Recomendado)
+
+Este é o método mais simples e rápido para ter a aplicação rodando.
+
+**Pré-requisitos:**
 - [Docker](https://www.docker.com/get-started/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-## Passos para subir o projeto
+**Passos:**
 
-1. **Faça o download do repositório:**
-   [Clique aqui para realizar o download](https://github.com/guilhermeonrails/imersao-devops/archive/refs/heads/main.zip)
+1.  **Clone o repositório:**
+    ```sh
+    git clone https://github.com/seu-usuario/seu-repositorio.git
+    cd seu-repositorio
+    ```
+    *(Lembre-se de substituir `seu-usuario/seu-repositorio` pela URL do seu projeto no GitHub)*
 
-2. **Crie um ambiente virtual:**
-   ```sh
-   python3 -m venv ./venv
-   ```
+2.  **Construa a imagem e inicie o container:**
+    Na raiz do projeto, execute o comando:
+    ```sh
+    docker-compose up --build
+    ```
 
-3. **Ative o ambiente virtual:**
-   - No Linux/Mac:
-     ```sh
-     source venv/bin/activate
-     ```
-   - No Windows:
-     ```sh
-     venv\Scripts\activate
-     ```
-
-4. **Instale as dependências:**
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-5. **Execute a aplicação:**
-   ```sh
-   uvicorn app:app --reload
-   ```
-
-6. **Acesse a documentação interativa:**
-
-   Abra o navegador e acesse:  
-   [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-
-   Aqui você pode testar todos os endpoints da API de forma interativa.
+3.  **Acesse a API:**
+    A aplicação estará rodando e pronta para uso. Acesse a documentação interativa no seu navegador:
+    http://127.0.0.1:8000/docs
 
 ---
 
-## Estrutura do Projeto
+### Método 2: Ambiente Virtual Local (Desenvolvimento)
 
-- `app.py`: Arquivo principal da aplicação FastAPI.
-- `models.py`: Modelos do banco de dados (SQLAlchemy).
-- `schemas.py`: Schemas de validação (Pydantic).
-- `database.py`: Configuração do banco de dados SQLite.
-- `routers/`: Diretório com os arquivos de rotas (alunos, cursos, matrículas).
-- `requirements.txt`: Lista de dependências do projeto.
+Use este método se preferir rodar a aplicação diretamente na sua máquina.
+
+**Pré-requisitos:**
+- Python 3.10 ou superior
+- Git
+
+**Passos:**
+
+1.  **Clone o repositório** (se ainda não o fez).
+
+2.  **Crie e ative um ambiente virtual:**
+    ```sh
+    # Criar o ambiente
+    python -m venv venv
+
+    # Ativar no Windows (PowerShell)
+    .\venv\Scripts\activate
+
+    # Ativar no Linux/macOS
+    source venv/bin/activate
+    ```
+
+3.  **Instale as dependências:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4.  **Execute a aplicação:**
+    ```sh
+    uvicorn app:app --reload
+    ```
+
+5.  **Acesse a API:**
+    http://127.0.0.1:8000/docs
 
 ---
 
-- O banco de dados SQLite será criado automaticamente como `escola.db` na primeira execução.
-- Para reiniciar o banco, basta apagar o arquivo `escola.db` (isso apagará todos os dados).
+## 📝 Sobre o Banco de Dados
+
+-   A aplicação utiliza um banco de dados **SQLite** (`escola.db`).
+-   O arquivo do banco de dados será criado automaticamente na raiz do projeto na primeira execução.
+-   Ao usar Docker, o arquivo `escola.db` é persistido na sua máquina local graças ao volume configurado no `docker-compose.yml`, então seus dados não serão perdidos ao reiniciar o container.
+-   Para reiniciar o banco do zero, basta apagar o arquivo `escola.db`.
 
 ---
