@@ -1,0 +1,9 @@
+services:
+  api: # Nome do serviço
+    build: . # Instrui o Docker Compose a construir a imagem a partir do Dockerfile localizado no diretório atual (.)
+    container_name: api # Nome do container
+    ports: # Mapeia a porta 8000 do host (máquina) para a porta 8000 do container
+      - "8000:8000"
+    volumes: # Monta o diretório atual no contêiner
+      # Isso habilita o hot-reloading e persiste o banco de dados na sua máquina.
+      - .:/app
