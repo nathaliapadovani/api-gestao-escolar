@@ -80,6 +80,15 @@ Use este método se preferir rodar a aplicação diretamente na sua máquina.
 
 ---
 
+# Autenticando no Google Cloud
+
+```sh
+gcloud auth login
+gcloud config set project PROJECT_ID
+gcloud run deploy --port=8000
+```
+
+
 ## 📝 Sobre o Banco de Dados
 
 -   A aplicação utiliza um banco de dados **SQLite** (`escola.db`).
