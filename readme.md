@@ -17,20 +17,24 @@ Existem duas maneiras de executar a aplicação: usando Docker (recomendado para
 Este é o método mais simples e rápido para ter a aplicação rodando.
 
 **Pré-requisitos:**
+
 - [Docker](https://www.docker.com/get-started/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 **Passos:**
 
 1.  **Clone o repositório:**
+
     ```sh
     git clone https://github.com/seu-usuario/seu-repositorio.git
     cd seu-repositorio
     ```
-    *(Lembre-se de substituir `seu-usuario/seu-repositorio` pela URL do seu projeto no GitHub)*
+
+    _(Lembre-se de substituir `seu-usuario/seu-repositorio` pela URL do seu projeto no GitHub)_
 
 2.  **Construa a imagem e inicie o container:**
     Na raiz do projeto, execute o comando:
+
     ```sh
     docker-compose up --build
     ```
@@ -46,6 +50,7 @@ Este é o método mais simples e rápido para ter a aplicação rodando.
 Use este método se preferir rodar a aplicação diretamente na sua máquina.
 
 **Pré-requisitos:**
+
 - Python 3.10 ou superior
 - Git
 
@@ -54,6 +59,7 @@ Use este método se preferir rodar a aplicação diretamente na sua máquina.
 1.  **Clone o repositório** (se ainda não o fez).
 
 2.  **Crie e ative um ambiente virtual:**
+
     ```sh
     # Criar o ambiente
     python -m venv venv
@@ -66,11 +72,13 @@ Use este método se preferir rodar a aplicação diretamente na sua máquina.
     ```
 
 3.  **Instale as dependências:**
+
     ```sh
     pip install -r requirements.txt
     ```
 
 4.  **Execute a aplicação:**
+
     ```sh
     uvicorn app:app --reload
     ```
@@ -88,12 +96,14 @@ gcloud config set project PROJECT_ID
 gcloud run deploy --port=8000
 ```
 
+**Acesse a API na nuvem:**
+https://api-490452604298.southamerica-east1.run.app/docs
 
 ## 📝 Sobre o Banco de Dados
 
--   A aplicação utiliza um banco de dados **SQLite** (`escola.db`).
--   O arquivo do banco de dados será criado automaticamente na raiz do projeto na primeira execução.
--   Ao usar Docker, o arquivo `escola.db` é persistido na sua máquina local graças ao volume configurado no `docker-compose.yml`, então seus dados não serão perdidos ao reiniciar o container.
--   Para reiniciar o banco do zero, basta apagar o arquivo `escola.db`.
+- A aplicação utiliza um banco de dados **SQLite** (`escola.db`).
+- O arquivo do banco de dados será criado automaticamente na raiz do projeto na primeira execução.
+- Ao usar Docker, o arquivo `escola.db` é persistido na sua máquina local graças ao volume configurado no `docker-compose.yml`, então seus dados não serão perdidos ao reiniciar o container.
+- Para reiniciar o banco do zero, basta apagar o arquivo `escola.db`.
 
 ---
